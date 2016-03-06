@@ -214,8 +214,3 @@ Lib.FlashCards.prototype.setCategory = function(category) {
     this.sortData();
     this.displayCard();
 };
-
-
-$(document).ready(function() {
-    var flashcards = new Lib.FlashCards("https://spreadsheets.google.com/feeds/list/1A_lbaGA6QYZoH-kk1ETsQdRi4dw4FKKiRYylIAGmVqs/od6/public/full?alt=json-in-script&callback=handleResponse");
-});

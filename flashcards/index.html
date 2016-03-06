@@ -5,6 +5,7 @@
     <script type='text/javascript' src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script type='text/javascript' src='https://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
     <script type='text/javascript' src='https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>   
+    <script type='text/javascript' src='/samples/lib.js'></script>   
     <script type='text/javascript' src='/samples/lib.flashcards.js'></script>   
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />    
     
@@ -50,38 +51,47 @@
     </head>
 
     <body>
-        <div class='menu'>
-            <div class="control categories">
-                <select>
-                    <option type='text' value=''>--Select Card Category--</option>
-                </select>
-            </div>
-    
-            <fieldset class='control sort' data-role="controlgroup" data-type="horizontal">
-            	<legend>Sort:</legend>
-    
-                <label for='sort-asc'>Ascending
-                    <input id='sort-asc' class='sort-value' name='sort-value' type='radio' value='asc'>
-                </label>
-                
-                <label for='sort-desc'>Descending
-                    <input id='sort-desc'class='sort-value' name='sort-value' type='radio' value='desc'/>
-                </label>
-                
-                <label for='sort-rand'>Random
-                    <input id='sort-rand' class='sort-value'  name='sort-value' type='radio' value='rand' checked='checked'/>
-                </label>
-    
-            </fieldset>
-        </div>
+        <!--
+            The URL format as follows. Replace document id with your spreadsheet.
+            Also, make sure your spreadsheat is published to the web.
         
-        <div class='control-navigation'>
-            <b>Card(s)</b>&nbsp;<span class='index'></span>                
-            <a class='prev' href='#'>prev</a>&nbsp<a class='next' href='#'>next</a>
-        </div>
-        <div class="card">
-            <div class='question'></div>
-            <div class='answer' data-placeholder='Show Answer?'  data-answer=''></div>
+            https://spreadsheets.google.com/feeds/list/{DOCUMENT_ID}/od6/public/full?alt=json-in-script&callback=handleResponse 
+        -->
+         
+        <div class='auto-init' data-function='Lib.FlashCards' data-arguments='["https://spreadsheets.google.com/feeds/list/1euhX9343djxBO2zs7hbjKoH5ysgUWzqUK88NxLPBnxc/od6/public/full?alt=json-in-script&callback=handleResponse"]' data-instantiate="true">
+            <div class='menu'>
+                <div class="control categories">
+                    <select>
+                        <option type='text' value=''>--Select Card Category--</option>
+                    </select>
+                </div>
+        
+                <fieldset class='control sort' data-role="controlgroup" data-type="horizontal">
+                	<legend>Sort:</legend>
+        
+                    <label for='sort-asc'>Ascending
+                        <input id='sort-asc' class='sort-value' name='sort-value' type='radio' value='asc'>
+                    </label>
+                    
+                    <label for='sort-desc'>Descending
+                        <input id='sort-desc'class='sort-value' name='sort-value' type='radio' value='desc'/>
+                    </label>
+                    
+                    <label for='sort-rand'>Random
+                        <input id='sort-rand' class='sort-value'  name='sort-value' type='radio' value='rand' checked='checked'/>
+                    </label>
+        
+                </fieldset>
+            </div>
+            
+            <div class='control-navigation'>
+                <b>Card(s)</b>&nbsp;<span class='index'></span>                
+                <a class='prev' href='#'>prev</a>&nbsp<a class='next' href='#'>next</a>
+            </div>
+            <div class="card">
+                <div class='question'></div>
+                <div class='answer' data-placeholder='Show Answer?'  data-answer=''></div>
+            </div>
         </div>
     </body>
 
